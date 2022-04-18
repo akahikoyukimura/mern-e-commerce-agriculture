@@ -40,7 +40,7 @@ function AddBook() {
 
       <Form.Group className="mb-3" controlId="formBasicImage">
         <Form.Label>image</Form.Label>
-        <Form.Control type="text" placeholder="Enter image" 
+        <Form.Control type="text" placeholder="Enter ur image" 
         onChange = {(e) => setBook({...book, image: e.target.value})} />
       </Form.Group>
 
