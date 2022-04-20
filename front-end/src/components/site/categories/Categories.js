@@ -1,5 +1,8 @@
 import React from 'react';
-import img1 from '../../../images/agi-machine.png';
+import img1 from '../../../images/machine.png';
+import img2 from '../../../images/seed.jpg';
+import img3 from '../../../images/fertilize (1).png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Categories() {
   return (
@@ -16,17 +19,17 @@ function Categories() {
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src={img1} class="rounded-circle img-fluid border"/></a>
-                <h5 class="text-center mt-3 mb-3">Watches</h5>
+                <h5 class="text-center mt-3 mb-3">Machines</h5>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src={img1} class="rounded-circle img-fluid border"/></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
+                <a href="#"><img src={img2} class="rounded-circle img-fluid border"/></a>
+                <h2 class="h5 text-center mt-3 mb-3">Seeds</h2>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src={img1} class="rounded-circle img-fluid border"/></a>
-                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
+                <a href="#"><img src={img3} class="rounded-circle img-fluid border"/></a>
+                <h2 class="h5 text-center mt-3 mb-3">Fertilizers</h2>
                 <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
             </div>
         </div>

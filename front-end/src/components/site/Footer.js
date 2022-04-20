@@ -21,17 +21,23 @@ function Footer() {
             </h2>
             <ul class="list-unstyled text-light footer-link-list">
               <li>
-                <i><FaMapMarkerAlt /> </i>
+                <i>
+                  <FaMapMarkerAlt />{" "}
+                </i>
                 Av. Allal Al Fassi, Rabat
               </li>
               <li>
-                <i><FaPhone /> </i>
+                <i>
+                  <FaPhone />{" "}
+                </i>
                 <a class="text-decoration-none" href="tel:06-32-13-14-65">
                   06 32 13 14 65
                 </a>
               </li>
               <li>
-                <i><FaEnvelope /> </i>
+                <i>
+                  <FaEnvelope />{" "}
+                </i>
                 <a
                   class="text-decoration-none"
                   href="mailto:elmourtazakkawtar39@gmail.com"
@@ -49,17 +55,17 @@ function Footer() {
             <ul class="list-unstyled text-light footer-link-list">
               <li>
                 <a class="text-decoration-none" href="#">
-                  machines
+                  Machines
                 </a>
               </li>
               <li>
                 <a class="text-decoration-none" href="#">
-                  grains
+                  Seeds
                 </a>
               </li>
               <li>
                 <a class="text-decoration-none" href="#">
-                  enfrais
+                  Fertilizers
                 </a>
               </li>
             </ul>
@@ -111,7 +117,9 @@ function Footer() {
                   target="_blank"
                   href="http://facebook.com/"
                 >
-                  <i><FaFacebookF /></i>
+                  <i>
+                    <FaFacebookF />
+                  </i>
                 </a>
               </li>
               <li class="list-inline-item border border-light rounded-circle text-center">
@@ -120,7 +128,9 @@ function Footer() {
                   target="_blank"
                   href="https://www.instagram.com/"
                 >
-                  <i><FaInstagram /></i>
+                  <i>
+                    <FaInstagram />
+                  </i>
                 </a>
               </li>
               <li class="list-inline-item border border-light rounded-circle text-center">
@@ -129,7 +139,9 @@ function Footer() {
                   target="_blank"
                   href="https://twitter.com/"
                 >
-                  <i><FaTwitter /></i>
+                  <i>
+                    <FaTwitter />
+                  </i>
                 </a>
               </li>
               <li class="list-inline-item border border-light rounded-circle text-center">
@@ -138,7 +150,9 @@ function Footer() {
                   target="_blank"
                   href="https://www.linkedin.com/"
                 >
-                  <i><FaLinkedin /></i>
+                  <i>
+                    <FaLinkedin />
+                  </i>
                 </a>
               </li>
             </ul>
@@ -152,11 +166,7 @@ function Footer() {
             <div class="col-12">
               <p class="text-left text-light">
                 Copyright &copy; 2022 AgriKit Company | Designed by{" "}
-                <a
-                  rel="sponsored"
-                  href="https://AgriKit.com"
-                  target="_blank"
-                >
+                <a rel="sponsored" href="https://AgriKit.com" target="_blank">
                   AgriKit
                 </a>
               </p>
