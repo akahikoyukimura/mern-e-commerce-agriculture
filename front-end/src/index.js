@@ -9,16 +9,17 @@ import { createStore ,applyMiddleware} from 'redux';
 import thunk from "redux-thunk";
 import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
 
 const store = createStore(rootReducer,applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
     <Provider store={store}>
-    <Nav_bar/>
-    <AddBook/>
-    {/* <App /> */}
+    <App />
     </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
