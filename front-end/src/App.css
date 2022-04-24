@@ -33,10 +33,17 @@ body, ul, li, p, a, label, input, div {
     background-color: #59ab6e !important;
     border-color: #56ae6c !important;
   }
-  .pagination .page-link:hover {color: #000;}
   .pagination .page-link:hover, .pagination .page-link.active {
     background-color: #69bb7e;
-    color: #fff;
+    color: #fff !important;
+  }
+  .page-item.active .page-link{
+    color: #fff !important;
+    background-color: #69bb7e !important;
+    border-color: #69bb7e !important;
+  }
+  .page-link{
+    color: #69bb7e !important;
   }
   /* Nav */
   #templatemo_nav_top { min-height: 40px;}
@@ -68,8 +75,8 @@ body, ul, li, p, a, label, input, div {
 
 /* Hero Carousel */
 #template-mo-zay-hero-carousel { background: #efefef !important;
-    padding-top: 3rem!important;
-    padding-bottom: 3rem!important;
+    /* padding-top: 3rem!important;
+    padding-bottom: 3rem!important; */
 }
 
 #template-mo-zay-hero-carousel .carousel-indicators li {
@@ -87,6 +94,151 @@ body, ul, li, p, a, label, input, div {
     color: #000 !important;
   }
 
+  /* Accordion */
+.templatemo-accordion a { color: #000;}
+.templatemo-accordion a:hover { color: #333d4a;}
+/* Shop */
+.shop-top-menu a:hover { color: #69bb7e !important;}
+.categorie-shop{
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  padding: .375rem 1.75rem;
+
+}
+.categorie-shop:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #59ab6e;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.categorie-shop:before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #19875b;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.categorie-shop:hover {
+  color: #fff;
+}
+.categorie-shop:hover:before {
+  width: 100%;
+}
+/* Product */
+.product-wap { box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);}
+.product-wap .product-color-dot.color-dot-red { background:#f71515;}
+.product-wap .product-color-dot.color-dot-blue { background:#6db4fe;}
+.product-wap .product-color-dot.color-dot-black { background:#000000;}
+.product-wap .product-color-dot.color-dot-light { background:#e0e0e0;}
+.product-wap .product-color-dot.color-dot-green { background:#0bff7e;}
+.card.product-wap .card .product-overlay {
+  background: rgba(0,0,0,.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+  transition-property: opacity;
+}
+.card.product-wap:hover .card .product-overlay {
+  border-radius: 25px 25px 60% 0% !important;
+  visibility: visible;
+  opacity: 1;
+}
+
+.card-body p.text-center{
+  background-color: #198754;
+  color: white;
+}
+
+.card.product-wap a { color: #000;}
+#carousel-related-product .slick-slide:focus { outline: none !important;}
+#carousel-related-product .slick-dots li button:before {
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/*single product*/
+.card-body{
+  background-color: #f8f9fa !important;
+}
+.card {
+  border: none !important;
+}
+.price-single-product{
+  color: #59ab6e !important;
+    font-size: 26px !important;
+    font-weight: bold !important;
+}
+.descriptio-sisgle-product{
+  background-color: #59ab6e;
+  width: fit-content;
+  padding: 10px 20px;
+  color: white;
+  margin-bottom: -1em;
+}
+.span-categorie-single-product{
+  color: #00bd31;
+}
+.hr-sigle-product{
+  width: 40%;
+    margin: auto;
+    color: #009b32;
+}
+.h1-center{
+  width: fit-content;
+    margin: auto;
+}
+.add-to-cart-sigle-product{
+  width: 50px;
+    height: 50px;
+    padding:5px !important;
+    overflow:hidden;
+    -webkit-transition:all 0.2s ease-in !important;
+    -moz-transition:all 0.2s ease-in !important;
+    -ms-transition:all 0.2s ease-in !important;
+    -o-transition:all 0.2s ease-in !important;
+    transition:all 0.2s ease-in !important;
+    border-radius: 50px !important;
+    border: 1px solid transparent;
+}
+.add-to-cart-sigle-product:hover{
+  width:200px !important;
+    height:50px !important;
+    border-radius:40px !important;
+    background-color:#97bf0d !important;
+    border: 1px solid #97bf0d !important;
+}
+.text-add-to-cart{
+  width:70%;
+    padding-right: 10px;
+    float:right;
+    line-height:40px;
+    color:#ffffff;
+    font-family:'Roboto';
+    font-weight:300;
+    font-size:18px;
+}
   /* Footer */
 #tempaltemo_footer a { color: #dcdde1;}
 #tempaltemo_footer a:hover { color: #68bb7d;}
@@ -115,6 +267,11 @@ body, ul, li, p, a, label, input, div {
   width: 6px;
   height: 6px;
 }
+
+
+
+
+
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
