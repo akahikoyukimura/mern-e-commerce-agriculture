@@ -1,5 +1,6 @@
 const express=require('express');
 const mongoose=require('mongoose');
+const categoryRouter =require('./routes/api/dashboard/CategoriesRouter');
 const bodyParser=require('body-parser');
 
 const books=require('./routes/api/books');
@@ -21,6 +22,7 @@ mongoose
 
 app.use('/api/books' , books);
 app.use('/api/users' , users);
+app.use("/api/category", categoryRouter);
 
 const port=process.env.PORT||5000;
 
