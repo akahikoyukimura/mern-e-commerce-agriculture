@@ -1,6 +1,18 @@
 import React from "react";
+import emailjs from 'emailjs-com';
 
 function Contact() {
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm('service_1nh1aef', 'template_2l2kf6n', e.target, 'T70Y-IeRUXZvcUPLs')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
   return (
     <>
       <div class="container-fluid bg-success py-5 ">
@@ -15,7 +27,7 @@ function Contact() {
 
       <div class="container py-5">
         <div class="row py-5">
-          <form class="col-md-9 m-auto" method="post" role="form" >
+          <form class="col-md-9 m-auto" method="post" role="form" onSubmit={sendEmail}>
             <div class="row">
               <div class="form-group col-md-6 mb-3">
                 <label for="inputname">Name</label>
