@@ -2,9 +2,14 @@ import React from "react";
 import { FaSearch, FaUserAlt, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 function Nav_bar1() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light shadow">
+    <nav 
+    style={{ height:'auto',
+      borderBottom: '0' }}
+    className="navbar navbar-expand-lg navbar-light shadow">
+      {/* <nav className="navbar navbar-expand-lg navbar-light shadow"> */}
       <div className="container d-flex justify-content-between align-items-center">
         <div className="card-heading navbar-brand"></div>
         <Link
@@ -30,6 +35,11 @@ function Nav_bar1() {
           className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
           id="templatemo_main_nav"
         >
+          {/* <div
+          className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+          id="templatemo_main_nav"
+        > */}
+          
           <div className="flex-fill">
             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
               <li className="nav-item">

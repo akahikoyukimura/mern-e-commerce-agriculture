@@ -1,13 +1,10 @@
 import './App.css';
-import Nav_bar from './components/Nav_bar';
-import AddBook from './components/books/AddBook';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Nav_bar1 from './components/site/Nav_bar1';
 import Home1 from './components/site/Home';
 import Categories1 from './components/site/categories/Categories';
 import Footer from './components/site/Footer';
 import Shop from './components/site/Shop';
-import ScrollToTop from './components/site/Handle/ScrollToTop';
 import Product from './components/site/Product';
 
 import Home from "./dashboardpages/pages/home/Home";
@@ -25,6 +22,7 @@ import { DarkModeContext } from "./context/darkModeContext";
 import Categories from "./dashboardpages/pages/categories/Categories";
 import Products from "./dashboardpages/pages/products/Products";
 import Orders from "./dashboardpages/pages/orders/Orderds";
+import Contact from './components/site/Contact';
 
 // https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=multiple-item-product-carousel
 //https://wpexpand.com/demo/html/eElectronics/cart.html
@@ -41,6 +39,7 @@ function App() {
         <Route path="/categories" element={<><Nav_bar1/><Categories1 /><Footer/></>} />
         <Route path="/shop"element={<><Nav_bar1/><Shop /><Footer/></>} />
         <Route path="/product" element={<><Nav_bar1/><Product /><Footer/></>} />
+        <Route path="/contact" element={<><Nav_bar1/><Contact /><Footer/></>} />
 </Routes>
         {/*dasboard*/}
         <Routes>

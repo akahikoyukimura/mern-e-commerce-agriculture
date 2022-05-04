@@ -59,6 +59,9 @@ body, ul, li, p, a, label, input, div {
     background-size: contain;
     width: 4%;
 }
+.navbar{
+  border: none !important;
+}
 
 /* --------------end nav bar----------------- */
 

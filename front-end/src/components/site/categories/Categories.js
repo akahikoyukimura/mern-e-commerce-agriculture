@@ -12,8 +12,8 @@ function Categories() {
     navigate(path);
   }
   return (
-    <section class="container py-5" id='categories'>
-        <div class="row text-center pt-3">
+    <section class="container py-5 " id='categories'>
+        <div class="row text-center pt-3 ">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Categories of The Month</h1>
                 <p>
