@@ -19,8 +19,7 @@ function Contact() {
         <div class="col-md-6 m-auto text-center text-white">
           <h1 class="h1">Contact Us</h1>
           <p>
-            Proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum. Lorem ipsum dolor sit amet.
+          We are always listening to our customers 24h/24h. Do not hesitate to contact us for your feedback
           </p>
         </div>
       </div>

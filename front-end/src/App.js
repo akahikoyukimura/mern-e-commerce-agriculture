@@ -23,6 +23,8 @@ import Categories from "./dashboardpages/pages/categories/Categories";
 import Products from "./dashboardpages/pages/products/Products";
 import Orders from "./dashboardpages/pages/orders/Orderds";
 import Contact from './components/site/Contact';
+import About from './components/site/About';
+import Cart from './components/site/Cart';
 
 // https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=multiple-item-product-carousel
 //https://wpexpand.com/demo/html/eElectronics/cart.html
@@ -40,6 +42,9 @@ function App() {
         <Route path="/shop"element={<><Nav_bar1/><Shop /><Footer/></>} />
         <Route path="/product" element={<><Nav_bar1/><Product /><Footer/></>} />
         <Route path="/contact" element={<><Nav_bar1/><Contact /><Footer/></>} />
+        <Route path="/about" element={<><Nav_bar1/><About /><Footer/></>} />
+        <Route path="/cart" element={<><Nav_bar1/><Cart /><Footer/></>} />
+        
 </Routes>
         {/*dasboard*/}
         <Routes>
