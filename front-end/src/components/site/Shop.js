@@ -31,15 +31,15 @@ function Shop() {
       id: 1,
       img: img1,
       name: "Tractor",
-      price: "250.00",
+      price: 250.50,
     },
     {
       id: 2,
       img: img1,
       name: "Tractor1",
-      price: "250.00",
+      price: 250.00,
     },
-    { id: 3, img: img1, name: "Tractor2", price: "250.00" },
+    { id: 3, img: img1, name: "Tractor2", price: 250.00 },
   ]);
 
   return (

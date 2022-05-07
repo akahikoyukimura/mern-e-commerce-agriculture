@@ -5,6 +5,7 @@ const bodyParser=require('body-parser');
 
 const books=require('./routes/api/books');
 const users=require('./routes/api/users');
+const products=require('./routes/api/dashboard/ProductRouter');
 
 const app=express();
 
@@ -23,6 +24,7 @@ mongoose
 app.use('/api/books' , books);
 app.use('/api/users' , users);
 app.use("/api/category", categoryRouter);
+app.use("/api/product", products);
 
 const port=process.env.PORT||5000;
 

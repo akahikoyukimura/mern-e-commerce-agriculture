@@ -13,6 +13,8 @@ import {
 } from "react-icons/fa";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 import { Link,useLocation } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import { addToCart } from "../../store/actions/CartActions";
 
 function Product(props) {
   const [product, setProduct] = useState({
@@ -22,10 +24,47 @@ function Product(props) {
     quantity: "1",
   });
 
-  const [qt, setQt] = useState(1);
+  const location = useLocation();
+  //console.log(location.state.produc);
 
-  const location = useLocation()
-  console.log(location.state.produc);
+  const [qt, setQt] = useState(1);
+  
+    const [cart,setCart]=useState({
+      id:location.state.produc.id,
+      image:location.state.produc.img,
+      price:location.state.produc.price,
+      name:location.state.produc.name,
+      quantity:1,
+    });
+
+    console.log(cart);
+
+    const handleQt=(e)=>{
+      e.preventDefault();
+      setCart(prevState => ({
+        ...prevState,
+        quantity: cart.quantity+1
+      }))
+    }
+    const dispatch=useDispatch();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // setCart({
+        //     id:location.state.produc.id,
+        // image:location.state.produc.img,
+        // price:location.state.produc.price,
+        // name:location.state.produc.name,
+        // })
+
+        console.log("this s product:",cart);
+        dispatch(addToCart(cart));
+        
+    }
+
+  
+
+  
 
   return (
     <>
@@ -89,7 +128,7 @@ function Product(props) {
                     <span class="span-categorie-single-product">Machine</span>
                   </p>
 
-                  <form action="" method="GET">
+                  <form action="" method="GET" onSubmit = { handleSubmit }>
                     <input
                       type="hidden"
                       name="product-title"
@@ -120,7 +159,7 @@ function Product(props) {
                           </li>
                           <li class="list-inline-item">
                             <span class="badge bg-secondary" id="var-value">
-                              {qt}
+                              {cart.quantity}
                             </span>
                           </li>
                           <li class="list-inline-item">
@@ -128,7 +167,7 @@ function Product(props) {
                               size={40}
                               color="rgb(25 135 84)"
                               cursor={"pointer"}
-                              onClick={() => setQt(qt + 1)}
+                              onClick={handleQt}
                             />
                           </li>
                         </ul>

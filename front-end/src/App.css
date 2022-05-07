@@ -283,6 +283,7 @@ body, ul, li, p, a, label, input, div {
     vertical-align: middle;
     display: flex;
     font-family: sans-serif;
+    padding: 20px 0px;
     font-size: 0.8rem !important;
     font-weight: bold !important;
 }
@@ -355,6 +356,10 @@ body, ul, li, p, a, label, input, div {
 .cart-card .col-2,.cart-card .col{
   padding: 0 1vh;
 }
+.cart-card .col-2{
+  width: auto;
+  height: auto;
+}
 .cart-card a{
   padding: 0 1vh;
   text-decoration: none;
@@ -368,6 +373,7 @@ body, ul, li, p, a, label, input, div {
 }
 .cart-card img{
   width: 3.5rem;
+  height: 3.5rem;
 }
 .back-to-shop{
   margin-top: 4.5rem;
@@ -436,6 +442,39 @@ body, ul, li, p, a, label, input, div {
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: center;
+}
+.qt-cart-item{
+  left: -15%;
+  text-align: center;
+  color: white;
+  top: -0.5rem;
+  height: fit-content;
+  position: relative;
+  width: 1.5rem;
+  border-radius: 50px;
+  border: 2px solid white;
+  background-color: #59ab6e
+}
+
+/* cart empty*/
+.card-empty {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 4vh 5vh;
+    width: 90%;
+    max-width: 950px;
+    word-wrap: break-word;
+}
+.card-empty .card-body {
+  padding: 30px;
+  background-color: #edf5e9 !important;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: .25rem;
+}
+.card-empty .add-to-cart-sigle-product{
+  margin: 10px 0px;
 }
 
 

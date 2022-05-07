@@ -1,9 +1,12 @@
 import React from "react";
 import { FaSearch, FaUserAlt, FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
 function Nav_bar1() {
+  const getData = useSelector((state) => state.cart);
+  console.log(getData);
   return (
     <nav 
     style={{ height:'auto',
@@ -87,7 +90,9 @@ function Nav_bar1() {
             >
               <FaShoppingCart />
               <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
-                7
+                {
+                  getData.totalQt
+                }
               </span>
             </Link>
             <a
