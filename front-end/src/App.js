@@ -26,8 +26,6 @@ import Contact from './components/site/Contact';
 import About from './components/site/About';
 import Cart from './components/site/Cart';
 
-// https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=multiple-item-product-carousel
-//https://wpexpand.com/demo/html/eElectronics/cart.html
 function App() {
   return (
     <div>

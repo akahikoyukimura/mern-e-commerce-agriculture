@@ -3,9 +3,11 @@ const mongoose=require('mongoose');
 const categoryRouter =require('./routes/api/dashboard/CategoriesRouter');
 const bodyParser=require('body-parser');
 
-const books=require('./routes/api/books');
-const users=require('./routes/api/users');
+//const books=require('./routes/api/books');
+//const users=require('./routes/api/users');
 const products=require('./routes/api/dashboard/ProductRouter');
+const users=require('./routes/api/site/UserRouter');
+const auth=require('./routes/api/site/AuthRouter');
 
 const app=express();
 
@@ -21,10 +23,12 @@ mongoose
         .catch(err=>console.log(err));
 
 
-app.use('/api/books' , books);
-app.use('/api/users' , users);
+//app.use('/api/books' , books);
+//app.use('/api/users' , users);
 app.use("/api/category", categoryRouter);
 app.use("/api/product", products);
+app.use("/api/user", users);
+app.use("/api/auth", auth);
 
 const port=process.env.PORT||5000;
 
