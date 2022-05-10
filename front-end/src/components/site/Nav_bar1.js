@@ -72,7 +72,7 @@ function Nav_bar1() {
               </li>
             </ul>
           </div>
-          <div className="navbar align-self-center d-flex">
+          <div className="navbar align-self-center d-flex" style={{  height: '60px' }}>
             <a
               className="nav-icon d-none d-lg-inline"
               href="#"
@@ -81,8 +81,6 @@ function Nav_bar1() {
             >
               <FaSearch />
             </a>
-
-         
 
             <Link
               className="nav-icon position-relative text-decoration-none"
@@ -95,7 +93,13 @@ function Nav_bar1() {
                 }
               </span>
             </Link>
-            <a
+
+            <Link to="/loginPage" class="text-center categorie-shop">
+     Login
+   </Link>
+
+            
+            {/* <a
               className="nav-icon position-relative text-decoration-none"
               href="#"
             >
@@ -103,7 +107,7 @@ function Nav_bar1() {
               <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
                 +99
               </span>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

@@ -25,6 +25,7 @@ import Orders from "./dashboardpages/pages/orders/Orderds";
 import Contact from './components/site/Contact';
 import About from './components/site/About';
 import Cart from './components/site/Cart';
+import LoginPage from './components/site/LoginPage';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/contact" element={<><Nav_bar1/><Contact /><Footer/></>} />
         <Route path="/about" element={<><Nav_bar1/><About /><Footer/></>} />
         <Route path="/cart" element={<><Nav_bar1/><Cart /><Footer/></>} />
+        <Route path='/loginPage' element={<LoginPage/>} />
         
 </Routes>
         {/*dasboard*/}
