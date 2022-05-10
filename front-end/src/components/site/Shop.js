@@ -44,9 +44,9 @@ function Shop() {
 
   return (
     <>
-      <div class="container-fluid bg-success py-5">
-        <div class="col-md-6 m-auto text-center text-white">
-          <h1 class="h1">Shop</h1>
+      <div className="container-fluid bg-success py-5">
+        <div className="col-md-6 m-auto text-center text-white">
+          <h1 className="h1">Shop</h1>
           <p>
             Our shop provides you everything you are looking for with a
             reasonable price and quality product. Take your time to consult

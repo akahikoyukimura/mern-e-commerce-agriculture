@@ -27,29 +27,29 @@ function Categories() {
   ]);
 console.log(product);
   return (
-    <section class="container py-5 " id="categories">
-      <div class="row text-center pt-3 ">
-        <div class="col-lg-6 m-auto">
-          <h1 class="h1">Categories of The Month</h1>
+    <section className="container py-5 " id="categories">
+      <div className="row text-center pt-3 ">
+        <div className="col-lg-6 m-auto">
+          <h1 className="h1">Categories of The Month</h1>
           <p>
             You can find what you are looking for here. Agricultural machinery,
             seeds and fertilizers. Choose one and go shopping.
           </p>
         </div>
       </div>
-      <div class="row">
+      <div className="row">
 
       {product.map((produc)=>{
 return(
-<div key={produc.id} class="col-12 col-md-4 p-5 mt-3">
+<div key={produc.id} className="col-12 col-md-4 p-5 mt-3">
  <a href="#">
-   <img src={produc.img} class="rounded-circle img-fluid border" />
+   <img src={produc.img} className="rounded-circle img-fluid border" />
  </a>
- <h5 class="text-center mt-3 mb-3">{produc.name}</h5>
- <p class="text-center">
-   {/* <a class="btn btn-success" onClick={routeChange}>
+ <h5 className="text-center mt-3 mb-3">{produc.name}</h5>
+ <p className="text-center">
+   {/* <a className="btn btn-success" onClick={routeChange}>
            Go Shop</a> */}
-   <Link to="/shop" class="text-center categorie-shop">
+   <Link to="/shop" className="text-center categorie-shop">
      Go Shop
    </Link>
  </p>

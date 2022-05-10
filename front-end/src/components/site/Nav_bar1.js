@@ -12,7 +12,6 @@ function Nav_bar1() {
     style={{ height:'auto',
       borderBottom: '0' }}
     className="navbar navbar-expand-lg navbar-light shadow">
-      {/* <nav className="navbar navbar-expand-lg navbar-light shadow"> */}
       <div className="container d-flex justify-content-between align-items-center">
         <div className="card-heading navbar-brand"></div>
         <Link
@@ -94,7 +93,7 @@ function Nav_bar1() {
               </span>
             </Link>
 
-            <Link to="/loginPage" class="text-center categorie-shop">
+            <Link to="/loginPage" className="text-center categorie-shop">
      Login
    </Link>
 

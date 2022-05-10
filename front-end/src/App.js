@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link,Navigate  } from "react-router-dom";
 import Nav_bar1 from './components/site/Nav_bar1';
 import Home1 from './components/site/Home';
 import Categories1 from './components/site/categories/Categories';
@@ -48,6 +48,7 @@ function App() {
 </Routes>
         {/*dasboard*/}
         <Routes>
+          {JSON.parse(localStorage.getItem('userInfo')).data.uRrole==='admin'?
         <Route path="/dashboard">
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
@@ -84,13 +85,7 @@ function App() {
               <Route index element={<Orders />} />
             </Route>
 
-    
-
-
-
-            
-
-          </Route>
+          </Route>:<Route path="/dashboard" element={<Navigate replace to="/loginPage" />} />}
       </Routes>
       
       {/* <Footer/> */}

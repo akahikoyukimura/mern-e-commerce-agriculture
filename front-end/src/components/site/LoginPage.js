@@ -10,9 +10,7 @@ function LoginPage({history}) {
     setChecked(!checked);
   };
 
-  const [data, setData] = useState({ uUsername: "", uPassword: "" });
-  
-  console.log(data.uPassword+' -> '+data.uUsername);
+  const [Data, setData] = useState({ uUsername: "", uPassword: "" });
 
 //   useEffect(() => {
 //       const userInfo=localStorage.get("userInfo");
@@ -23,85 +21,74 @@ function LoginPage({history}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
+    console.log(Data);
 
-    //try {
-        //const url = "http://localhost:5000/api/auth/login";
-        //const { data: res } = await axios.post(url, data);
-        await axios.post('http://localhost:5000/api/auth/login', data)
-          .then(function (response) {
-            console.log(response);
+        await axios.post('http://localhost:5000/api/auth/login', Data)
+          .then( response=> {
             localStorage.setItem("userInfo", JSON.stringify(response));
+            if (response.data.uRrole==='admin') {
+                window.location = "/dashboard";
+            } else {
+                window.location = "/";
+            }
           })
-          .catch(function (error) {
+          .catch(error=> {
             console.log(error);
           });
-        //console.log('hi'+res.data);
-        //localStorage.setItem("token", res.data);
-        //window.location = "/dashboard";
-    // } catch (error) {
-    //     if (
-    //         error.response &&
-    //         error.response.status >= 400 &&
-    //         error.response.status <= 500
-    //     ) {
-    //         console.log('erreur');
-    //     }
-    // }
   };
 
 
 
   return (
     <>
-      <div class="content login-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 order-md-2">
-              <img src={img} alt="Image" class="img-fluid" />
+      <div className="content login-content">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 order-md-2">
+              <img src={img} alt="Image" className="img-fluid" />
             </div>
-            <div class="col-md-6 contents">
-              <div class="row justify-content-center">
-                <div class="col-md-8">
-                  <div class="mb-4">
+            <div className="col-md-6 contents">
+              <div className="row justify-content-center">
+                <div className="col-md-8">
+                  <div className="mb-4">
                     <h3>
                       Log In to <strong>AgriKit</strong>
                     </h3>
                   </div>
                   <form onSubmit={handleSubmit}>
-                    <div class="form-group first">
-                      <input type="text" class="form-control" id="username" 
+                    <div className="form-group first">
+                      <input type="text" className="form-control" id="username" 
                       placeholder="Username"
-                      value={data.uUsername}
-                      onChange = {(e) => setData({...data, uUsername: e.target.value})}
+                      value={Data.uUsername}
+                      onChange = {(e) => setData({...Data, uUsername: e.target.value})}
                       />
                     </div>
-                    <div class="form-group last mb-4">
+                    <div className="form-group last mb-4">
                       <input
                       placeholder="Password"
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         id="password"
-                        value={data.uPassword}
-                        onChange = {(e) => setData({...data, uPassword: e.target.value})}
+                        value={Data.uPassword}
+                        onChange = {(e) => setData({...Data, uPassword: e.target.value})}
                       />
                     </div>
 
                     <div
-                      class="d-flex mb-5 align-items-center"
+                      className="d-flex mb-5 align-items-center"
                       style={{ justifyContent: "space-between" }}
                     >
-                      <label class="control control--checkbox mb-0">
-                        <span class="caption">Remember me</span>
+                      <label className="control control--checkbox mb-0">
+                        <span className="caption">Remember me</span>
                         <input
                           type="checkbox"
                           checked={checked}
                           onChange={handleChangeCheckbox}
                         />
-                        <div class="control__indicator"></div>
+                        <div className="control__indicator"></div>
                       </label>
-                      <span class="ml-auto">
-                        <a href="#" class="forgot-pass">
+                      <span className="ml-auto">
+                        <a href="#" className="forgot-pass">
                           Forgot Password
                         </a>
                       </span>
@@ -109,28 +96,28 @@ function LoginPage({history}) {
 
                     <button 
                       type="submit"
-                      class="btn text-white btn-block btn-primary"
+                      className="btn text-white btn-block btn-primary"
                     >Log In</button>
                     </form>
 
-                    <span class="d-block text-left my-4 text-muted">
+                    <span className="d-block text-left my-4 text-muted">
                       {" "}
                       or sign in with
                     </span>
 
-                    <div class="social-login">
-                      <a href="#" class="facebook">
-                        <span class="icon-facebook mr-3">
+                    <div className="social-login">
+                      <a href="#" className="facebook">
+                        <span className="icon-facebook mr-3">
                           <FaFacebookF />
                         </span>
                       </a>
-                      <a href="#" class="twitter">
-                        <span class="icon-twitter mr-3">
+                      <a href="#" className="twitter">
+                        <span className="icon-twitter mr-3">
                           <FaTwitter />
                         </span>
                       </a>
-                      <a href="#" class="google">
-                        <span class="icon-google mr-3">
+                      <a href="#" className="google">
+                        <span className="icon-google mr-3">
                           <FaGoogle />
                         </span>
                       </a>
