@@ -37,10 +37,6 @@ function Nav_bar1() {
           className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
           id="templatemo_main_nav"
         >
-          {/* <div
-          className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
-          id="templatemo_main_nav"
-        > */}
           
           <div className="flex-fill">
             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
@@ -97,16 +93,7 @@ function Nav_bar1() {
      Login
    </Link>
 
-            
-            {/* <a
-              className="nav-icon position-relative text-decoration-none"
-              href="#"
-            >
-              <FaUserAlt />
-              <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
-                +99
-              </span>
-            </a> */}
+           
           </div>
         </div>
       </div>

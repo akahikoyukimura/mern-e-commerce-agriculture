@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import img1 from "../../images/tractor.jpg";
 import "../site/js/templatemo.js";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -13,10 +13,12 @@ import {
 } from "react-icons/fa";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 import { Link,useLocation } from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { addToCart } from "../../store/actions/CartActions";
 
 function Product(props) {
+
+
   const [product, setProduct] = useState({
     img: img1,
     name: "Tractor",
@@ -97,13 +99,13 @@ function Product(props) {
                   <p className="h3 py-2 price-single-product">${location.state.produc.price}</p>
                   <p className="py-2">
                     <i>
-                      <FaStar classNameName="text-success" />
+                      <FaStar className="text-success" />
                     </i>
                     <i>
-                      <FaStar classNameName="text-success" />
+                      <FaStar className="text-success" />
                     </i>
                     <i>
-                      <FaStar classNameName="text-success" />
+                      <FaStar className="text-success" />
                     </i>
                     <i>
                       <FaRegStar />

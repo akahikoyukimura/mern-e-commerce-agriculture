@@ -11,12 +11,7 @@ import {RiEmotionHappyFill} from "react-icons/ri";
 function Cart() {
   const getData = useSelector((state) => state.cart);
   console.log(getData);
-
-  // const dispatch=useDispatch();
-  // useEffect(() => {
-  //     dispatch(getCart());
-  //     console.log(dispatch(getCart()));
-  //   });
+  //console.log(JSON.parse(localStorage.getItem('cart')));
   if (getData.carts.length != 0) {
     return (
       <>

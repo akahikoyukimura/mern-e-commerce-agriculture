@@ -6,15 +6,16 @@ const initState={
     totalQt:0,
 };
 
+
 const CartReducer = (state = initState, action) => {
         console.log("this is payload",action.payload);
         console.log("this is initstate",state);
   switch (action.type) {
     case "ADD_TO_CART":
+      //localStorage.setItem("cart", JSON.stringify(state));
       const item = state.carts.find(
         product => product.id === action.payload.id,
       );
-    
       if (item) {
         return {
           ...state,
@@ -28,6 +29,7 @@ const CartReducer = (state = initState, action) => {
           totalPrice: state.totalPrice + (action.payload.price*action.payload.quantity),
           totalQt: state.totalQt + action.payload.quantity,
         };
+        
       }
     
       return {

@@ -692,6 +692,17 @@ body, ul, li, p, a, label, input, div {
     background-color: #29bb8a;
     border-color: #27b183;
 }
+.login-content .btn-check:focus+.btn-primary,.login-content .btn-primary:focus {
+  color: #fff;
+  background-color: #29bb8a;
+  border-color: #27b183;
+  box-shadow: none;
+}
+.no-account-yet{
+  display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+}
 
 
 

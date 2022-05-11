@@ -26,6 +26,7 @@ import Contact from './components/site/Contact';
 import About from './components/site/About';
 import Cart from './components/site/Cart';
 import LoginPage from './components/site/LoginPage';
+import RegisterPage from './components/site/RegisterPage';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/about" element={<><Nav_bar1/><About /><Footer/></>} />
         <Route path="/cart" element={<><Nav_bar1/><Cart /><Footer/></>} />
         <Route path='/loginPage' element={<LoginPage/>} />
+        <Route path='/registerPage' element={<RegisterPage/>} />
         
 </Routes>
         {/*dasboard*/}
