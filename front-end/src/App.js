@@ -41,7 +41,7 @@ function App() {
         <Route path="/categories" element={<><Nav_bar1/><Categories1 /><Footer/></>} />
         <Route path="/shop"element={<><Nav_bar1/><Shop /><Footer/></>} />
         <Route path="/product" element={<><Nav_bar1/><Product /><Footer/></>} />
-        <Route path="/contact" element={<><Nav_bar1/><Contact /><Footer/></>} />
+        <Route path="/contact"  element={<><Nav_bar1/><Contact /><Footer/></>} />
         <Route path="/about" element={<><Nav_bar1/><About /><Footer/></>} />
         <Route path="/cart" element={<><Nav_bar1/><Cart /><Footer/></>} />
         <Route path='/loginPage' element={<LoginPage/>} />
