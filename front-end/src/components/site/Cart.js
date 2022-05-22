@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import img1 from "../../images/shop.png";
+import img1 from "../../images/tractor.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../store/actions/CartActions";
@@ -54,22 +54,22 @@ return(
 <div key={produc.id} className="row border-top border-bottom">
                   <div className="row main align-items-center">
                     <div className="col-2" style={{ display: "flex" }}>
-                      <img className="img-fluid" src={produc.image} />
-                      <div className="qt-cart-item">{produc.quantity}</div>
+                      <img className="img-fluid" src={img1} />
+                      <div className="qt-cart-item">{produc.pQuantity}</div>
                     </div>
                     <div className="col">
-                      <div className="row text-muted">Categorie: {produc.name}</div>
-                      <div className="row">{produc.name}</div>
+                      <div className="row text-muted">Categorie: {produc.pCategory}</div>
+                      <div className="row">{produc.pName}</div>
                     </div>
                     <div className="col">
                       <a href="#">-</a>
                       <a href="#" className="border">
-                      {produc.quantity}
+                      {produc.pQuantity}
                       </a>
                       <a href="#">+</a>
                     </div>
                     <div className="col items-cart">
-                      &euro; {produc.price} <span className="close">&#10005;</span>
+                      &euro; {produc.pPrice} <span className="close">&#10005;</span>
                     </div>
                   </div>
                 </div>)

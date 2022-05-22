@@ -15,8 +15,7 @@ import axios from "axios";
 
 function Shop(props) {
   const location = useLocation()
-  const { name } = location.state.name;
-  console.log(name);
+  
   useEffect(() => {
     var all_panels = $(".templatemo-accordion > li > ul");
     $(".templatemo-accordion > li > a").click(function () {
@@ -33,13 +32,30 @@ function Shop(props) {
   const [prod, setProds] = useState({p:[]});
   
   useEffect(async () => {
-    const pro=await axios
-      .get(`http://localhost:5000/api/product/categorie/${name}`);
-      if(pro){console.log(pro.data.data);
-      setProds({ p: pro.data.data });
-    }else{
-      alert("no products");
+    try {
+      const { name } = location.state.name;
+      if(name){const pro=await axios
+        .get(`http://localhost:5000/api/product/categorie/${name}`);
+        if(pro){console.log(pro.data.data);
+          setProds({ p: pro.data.data });
+        }else{
+          alert("no products");
+        }
+      }
+    } catch (error) {
+      
     }
+    if(!location.state){
+      const pro=await axios
+        .get(`http://localhost:5000/api/product/`);
+        if(pro){console.log(pro.data);
+          setProds({ p: pro.data });
+        }else{
+          alert("no products");
+        }
+    }
+    
+      
       
   }, []);
 

@@ -31,13 +31,7 @@ function Product(props) {
 
   const [qt, setQt] = useState(1);
   
-    const [cart,setCart]=useState({
-      id:location.state.produc.id,
-      image:location.state.produc.img,
-      price:location.state.produc.price,
-      name:location.state.produc.name,
-      quantity:1,
-    });
+    const [cart,setCart]=useState(location.state.produc);
 
     console.log(cart);
 
@@ -45,7 +39,7 @@ function Product(props) {
       e.preventDefault();
       setCart(prevState => ({
         ...prevState,
-        quantity: cart.quantity+1
+        pQuantity: cart.pQuantity+1
       }))
     }
     const dispatch=useDispatch();
@@ -84,7 +78,7 @@ function Product(props) {
               <div className="card mb-3">
                 <img
                   className="card-img img-fluid"
-                  src={location.state.produc.img}
+                  src={img1}
                   alt="Card image cap"
                   id="product-detail"
                 />
@@ -94,9 +88,9 @@ function Product(props) {
               <div className="card">
                 <div className="card-body">
                   <hr className="hr-sigle-product"></hr>
-                  <h1 className="h1-center">{location.state.produc.name}</h1>
+                  <h1 className="h1-center">{location.state.produc.pName}</h1>
                   <hr className="hr-sigle-product"></hr>
-                  <p className="h3 py-2 price-single-product">${location.state.produc.price}</p>
+                  <p className="h3 py-2 price-single-product">${location.state.produc.pPrice}</p>
                   <p className="py-2">
                     <i>
                       <FaStar className="text-success" />
@@ -161,7 +155,7 @@ function Product(props) {
                           </li>
                           <li className="list-inline-item">
                             <span className="badge bg-secondary" id="var-value">
-                              {cart.quantity}
+                              {cart.pQuantity}
                             </span>
                           </li>
                           <li className="list-inline-item">

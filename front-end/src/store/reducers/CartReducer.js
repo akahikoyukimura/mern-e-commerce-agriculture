@@ -14,20 +14,20 @@ const CartReducer = (state = initState, action) => {
     case "ADD_TO_CART":
       //localStorage.setItem("cart", JSON.stringify(state));
       const item = state.carts.find(
-        product => product.id === action.payload.id,
+        product => product._id === action.payload._id,
       );
       if (item) {
         return {
           ...state,
-          carts: state.carts.map(item => item.id === action.payload.id
+          carts: state.carts.map(item => item._id === action.payload._id
             ? {
               ...item,
-              quantity: item.quantity + action.payload.quantity,
+              pQuantity: item.pQuantity + action.payload.pQuantity,
             }
             : item
           ),
-          totalPrice: state.totalPrice + (action.payload.price*action.payload.quantity),
-          totalQt: state.totalQt + action.payload.quantity,
+          totalPrice: state.totalPrice + (action.payload.pPrice*action.payload.pQuantity),
+          totalQt: state.totalQt + action.payload.pQuantity,
         };
         
       }
@@ -35,8 +35,8 @@ const CartReducer = (state = initState, action) => {
       return {
         ...state,
         carts: [...state.carts, action.payload],
-        totalPrice: state.totalPrice + (action.payload.price*action.payload.quantity),
-        totalQt: state.totalQt + action.payload.quantity,
+        totalPrice: state.totalPrice + (action.payload.pPrice*action.payload.pQuantity),
+        totalQt: state.totalQt + action.payload.pQuantity,
       };
       case "GET_CART":
       return state;
