@@ -7,6 +7,7 @@ const cart=require("../../../models/site/CartModle");
 router.post("/", (req, res) => {
   const newCart = new cart({
     carts: req.body.carts,
+    user:req.body.user,
     totalPrice: req.body.totalPrice,
     totalQt: req.body.totalQt,
   });

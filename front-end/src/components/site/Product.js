@@ -29,6 +29,9 @@ function Product(props) {
   const location = useLocation();
   //console.log(location.state.produc);
 
+  const user=JSON.parse(localStorage.getItem('userInfo')).data;
+  console.log(user);
+  
   const [qt, setQt] = useState(1);
   
     const [cart,setCart]=useState(location.state.produc);

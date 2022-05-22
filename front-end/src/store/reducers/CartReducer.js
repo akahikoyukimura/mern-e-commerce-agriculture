@@ -4,6 +4,7 @@ const initState={
     carts:[],
     totalPrice: 0,
     totalQt:0,
+    user:null,
 };
 
 
@@ -28,6 +29,7 @@ const CartReducer = (state = initState, action) => {
           ),
           totalPrice: state.totalPrice + (action.payload.pPrice*action.payload.pQuantity),
           totalQt: state.totalQt + action.payload.pQuantity,
+          user:JSON.parse(localStorage.getItem('userInfo')).data,
         };
         
       }
@@ -37,6 +39,7 @@ const CartReducer = (state = initState, action) => {
         carts: [...state.carts, action.payload],
         totalPrice: state.totalPrice + (action.payload.pPrice*action.payload.pQuantity),
         totalQt: state.totalQt + action.payload.pQuantity,
+        user:JSON.parse(localStorage.getItem('userInfo')).data,
       };
       case "GET_CART":
       return state;

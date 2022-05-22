@@ -10,6 +10,10 @@ const cartSchema = new mongoose.Schema(
             ref: 'ProductModle'
           
     }],
+    user:{
+        type:ObjectId,
+        ref:'User'
+    },
     totalPrice: {
       type: Number,
     },

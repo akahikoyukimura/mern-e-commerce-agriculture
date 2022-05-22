@@ -12,6 +12,9 @@ import axios from 'axios';
 function Cart() {
   const getData = useSelector((state) => state.cart);
   console.log(getData);
+
+  const user=JSON.parse(localStorage.getItem('userInfo')).data;
+  console.log(user);
   //console.log(JSON.parse(localStorage.getItem('cart')));
   const checkout = async (e) => {
     e.preventDefault();
