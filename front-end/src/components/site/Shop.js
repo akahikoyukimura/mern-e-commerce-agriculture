@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import img1 from "../../images/tractor.jpg";
 //import '../site/js/templatemo.js';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   FaChevronCircleDown,
   FaStar,
@@ -11,8 +11,12 @@ import {
   FaCartPlus,
 } from "react-icons/fa";
 import $ from "jquery";
+import axios from "axios";
 
-function Shop() {
+function Shop(props) {
+  const location = useLocation()
+  const { name } = location.state.name;
+  console.log(name);
   useEffect(() => {
     var all_panels = $(".templatemo-accordion > li > ul");
     $(".templatemo-accordion > li > a").click(function () {
@@ -25,6 +29,36 @@ function Shop() {
       return false;
     });
   }, []);
+
+  const [prod, setProds] = useState({p:[]});
+  
+  useEffect(async () => {
+    const pro=await axios
+      .get(`http://localhost:5000/api/product/categorie/${name}`);
+      if(pro){console.log(pro.data.data);
+      setProds({ p: pro.data.data });
+    }else{
+      alert("no products");
+    }
+      
+  }, []);
+
+  console.log("prods :"+prod);
+
+  const filter = value => async (e) => {
+    e.preventDefault();
+    console.log(value);
+    await axios.get(`http://localhost:5000/api/product/sub_categorie/${value}`)
+          .then( response=> {
+                console.log(response);
+                setProds({ p: response.data.data });
+          })
+          .catch(error=> {
+            //console.log(error);
+            alert('no products in this sub_categorie');
+            console.log("no prods");
+          });
+  };
 
   const [product, setProduct] = useState([
     {
@@ -41,6 +75,8 @@ function Shop() {
     },
     { id: 3, img: img1, name: "Tractor2", price: 250.00 },
   ]);
+
+  
 
   return (
     <>
@@ -71,12 +107,16 @@ function Shop() {
                 </a>
                 <ul className="collapse show list-unstyled pl-3">
                   <li>
-                    <a className="text-decoration-none" href="#">
-                      Tractor
+                    <a className="text-decoration-none" href="#"
+                    onClick={filter('Tractor1')}
+                    >
+                      Tractor1
                     </a>
                   </li>
                   <li>
-                    <a className="text-decoration-none" href="#">
+                    <a className="text-decoration-none" href="#"
+                    onClick={filter('Motoculteur')}
+                    >
                       Motoculteur
                     </a>
                   </li>
@@ -179,9 +219,9 @@ function Shop() {
               </div>
             </div>
             <div className="row">
-              {product.map((produc) => {
+              {prod.p.map((produc) => {
                 return (
-                  <div key={produc.id} className="col-md-4">
+                  <div key={produc._id} className="col-md-4">
                     <div
                       className="card mb-4 product-wap "
                       style={{ borderRadius: "25px", border: "none" }}
@@ -193,7 +233,7 @@ function Shop() {
                             borderRadius: "25px 25px 60% 0%",
                             transition: ".3s",
                           }}
-                          src={produc.img}
+                          src={img1}
                         />
                         <div className="card-img-overlay  product-overlay d-flex align-items-center justify-content-center">
                           <ul className="list-unstyled">
@@ -235,7 +275,7 @@ function Shop() {
                           href="shop-single.html"
                           className="h3 text-decoration-none"
                         >
-                          {produc.name}
+                          {produc.pName}
                         </a>
 
                         <ul className="list-unstyled d-flex justify-content-center mb-1">
@@ -257,7 +297,7 @@ function Shop() {
                             </i>
                           </li>
                         </ul>
-                        <p className="text-center mb-0">${produc.price}</p>
+                        <p className="text-center mb-0">${produc.pPrice}</p>
                       </div>
                     </div>
                   </div>

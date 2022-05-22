@@ -7,11 +7,23 @@ import { FaOpencart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import {RiEmotionHappyFill} from "react-icons/ri";
+import axios from 'axios';
 
 function Cart() {
   const getData = useSelector((state) => state.cart);
   console.log(getData);
   //console.log(JSON.parse(localStorage.getItem('cart')));
+  const checkout = async (e) => {
+    e.preventDefault();
+    console.log("Data");
+    await axios.post('http://localhost:5000/api/cart/', getData)
+          .then( response=> {
+                console.log(response);
+          })
+          .catch(error=> {
+            console.log(error);
+          });
+  };
   if (getData.carts.length != 0) {
     return (
       <>
@@ -92,6 +104,7 @@ return(
                   name="submit"
                   value="checkout"
                  className="btn"
+                 onClick={checkout}
                 >
                   CHECKOUT
                 </button>

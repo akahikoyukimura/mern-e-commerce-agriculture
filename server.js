@@ -8,6 +8,7 @@ const bodyParser=require('body-parser');
 const products=require('./routes/api/dashboard/ProductRouter');
 const users=require('./routes/api/site/UserRouter');
 const auth=require('./routes/api/site/AuthRouter');
+const cart=require('./routes/api/site/CartRouter');
 
 const app=express();
 
@@ -29,6 +30,7 @@ app.use("/api/category", categoryRouter);
 app.use("/api/product", products);
 app.use("/api/user", users);
 app.use("/api/auth", auth);
+app.use("/api/cart", cart);
 
 const port=process.env.PORT||5000;
 

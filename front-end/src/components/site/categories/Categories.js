@@ -49,7 +49,7 @@ return(
  <p className="text-center">
    {/* <a className="btn btn-success" onClick={routeChange}>
            Go Shop</a> */}
-   <Link to="/shop" className="text-center categorie-shop">
+   <Link to="/shop" state={{ name: produc }} className="text-center categorie-shop">
      Go Shop
    </Link>
  </p>
