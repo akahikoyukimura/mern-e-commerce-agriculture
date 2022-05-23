@@ -57,7 +57,7 @@ return(
 <div key={produc.id} className="row border-top border-bottom">
                   <div className="row main align-items-center">
                     <div className="col-2" style={{ display: "flex" }}>
-                      <img className="img-fluid" src={img1} />
+                      <img className="img-fluid" src={"./uploads/"+produc.pImages} />
                       <div className="qt-cart-item">{produc.pQuantity}</div>
                     </div>
                     <div className="col">

@@ -31,7 +31,7 @@ function Product(props) {
 
   const user=JSON.parse(localStorage.getItem('userInfo')).data;
   console.log(user);
-  
+
   const [qt, setQt] = useState(1);
   
     const [cart,setCart]=useState(location.state.produc);
@@ -81,7 +81,7 @@ function Product(props) {
               <div className="card mb-3">
                 <img
                   className="card-img img-fluid"
-                  src={img1}
+                  src={"./uploads/"+location.state.produc.pImages}
                   alt="Card image cap"
                   id="product-detail"
                 />

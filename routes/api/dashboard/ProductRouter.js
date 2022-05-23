@@ -3,6 +3,22 @@ const router = express.Router();
 
 const product = require("../../../models/dashboard/ProductModle");
 
+const multer = require("multer");
+const path = require('path');
+
+
+// Image Upload setting
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '/uploads/'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "_" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
 router.get("/", (req, res) => {
   product
     .find()
@@ -10,7 +26,7 @@ router.get("/", (req, res) => {
     .then((products) => res.json(products));
 });
 
-router.post("/", (req, res) => {
+router.post("/",upload.single("pImages"), (req, res) => {
   const newProduct = new product({
     pName: req.body.pName,
     pDescription: req.body.pDescription,
@@ -18,7 +34,7 @@ router.post("/", (req, res) => {
     SousCategory: req.body.SousCategory,
     pCategory: req.body.pCategory,
     pStatus: req.body.pStatus,
-    pImages: req.body.pImages,
+    pImages: req.file.filename,
   });
 
   newProduct.save().then((product) => res.json(product));

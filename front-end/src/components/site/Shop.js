@@ -248,8 +248,9 @@ function Shop(props) {
                           style={{
                             borderRadius: "25px 25px 60% 0%",
                             transition: ".3s",
+                            height: "12rem",
                           }}
-                          src={img1}
+                          src={"./uploads/"+produc.pImages}
                         />
                         <div className="card-img-overlay  product-overlay d-flex align-items-center justify-content-center">
                           <ul className="list-unstyled">

@@ -26,6 +26,7 @@ mongoose
 
 //app.use('/api/books' , books);
 //app.use('/api/users' , users);
+app.use("/uploads",express.static("routes/api/dashboard/uploads"));
 app.use("/api/category", categoryRouter);
 app.use("/api/product", products);
 app.use("/api/user", users);
