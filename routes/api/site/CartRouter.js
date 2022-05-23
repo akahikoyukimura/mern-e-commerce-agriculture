@@ -17,7 +17,9 @@ router.post("/", (req, res) => {
 
 router.get("/", (req, res) => {
     cart
-      .find()
+      .find({})
+      .populate({path:"user",model:"user"})
+      .populate({path:"carts",model:"product"})
       .sort({ date: -1 })
       .then((cart) => res.json(cart));
   });
