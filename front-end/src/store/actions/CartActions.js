@@ -9,6 +9,15 @@ export const addToCart = (product) => {
     };
   };
 
+  export const removeFromCart = (product) => {
+    console.log("this is action:",product);
+    return {
+            type: "REMOVE_FROM_CART",
+            payload:product,
+          
+    };
+  };
+
   export const getCart = () => {
     return (dispatch, getState) => {
       

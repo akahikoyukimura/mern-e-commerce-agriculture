@@ -41,6 +41,13 @@ const CartReducer = (state = initState, action) => {
         totalQt: state.totalQt + action.payload.pQuantity,
         user:JSON.parse(localStorage.getItem('userInfo')).data,
       };
+      case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        carts: state.carts.filter((item)=>item._id!==action.payload._id),
+        totalPrice: state.totalPrice - (action.payload.pPrice*action.payload.pQuantity),
+        totalQt: state.totalQt - action.payload.pQuantity,
+      };
       case "GET_CART":
       return state;
     default:

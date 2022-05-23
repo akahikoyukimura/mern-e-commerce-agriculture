@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import {RiEmotionHappyFill} from "react-icons/ri";
 import axios from 'axios';
+import { removeFromCart } from "../../store/actions/CartActions";
 
 function Cart() {
   const getData = useSelector((state) => state.cart);
@@ -16,6 +17,15 @@ function Cart() {
   const user=JSON.parse(localStorage.getItem('userInfo')).data;
   console.log(user);
   //console.log(JSON.parse(localStorage.getItem('cart')));
+
+  
+  const dispatch=useDispatch();
+  const handleSubmit = value => (e) => {
+    e.preventDefault();
+    console.log(value);
+    dispatch(removeFromCart(value));
+  };
+
   const checkout = async (e) => {
     e.preventDefault();
     console.log("Data");
@@ -55,6 +65,7 @@ function Cart() {
                 {getData.carts.map((produc)=>{
 return(
 <div key={produc.id} className="row border-top border-bottom">
+  <form action="" method="GET" onSubmit = { handleSubmit(produc) }>
                   <div className="row main align-items-center">
                     <div className="col-2" style={{ display: "flex" }}>
                       <img className="img-fluid" src={"./uploads/"+produc.pImages} />
@@ -72,9 +83,14 @@ return(
                       <a href="#">+</a>
                     </div>
                     <div className="col items-cart">
-                      &euro; {produc.pPrice} <span className="close">&#10005;</span>
+                      &euro; {produc.pPrice} <button className="close btn-close-cart"
+                      type="submit"
+                      ><a className="close" 
+                      
+                      >&#10005;</a></button>
                     </div>
                   </div>
+                  </form>
                 </div>)
 })}
 

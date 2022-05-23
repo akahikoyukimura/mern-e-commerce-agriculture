@@ -368,6 +368,10 @@ body, ul, li, p, a, label, input, div {
   margin-left: auto;
   font-size: 0.7rem;
 }
+.btn-close-cart{
+  border: none;
+    background: transparent;
+}
 .items-cart{
   display: flex;
 }
