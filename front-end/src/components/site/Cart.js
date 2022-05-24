@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import img1 from "../../images/tractor.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,8 +9,17 @@ import { FaCartPlus } from "react-icons/fa";
 import {RiEmotionHappyFill} from "react-icons/ri";
 import axios from 'axios';
 import { removeFromCart } from "../../store/actions/CartActions";
+import StripeCheckout from 'react-stripe-checkout';
 
 function Cart() {
+
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+  console.log(modal);
+
+  const publishableKey='pk_test_51L2zdzEGQz03sJGQWbhrBiJebiNygTaOimGDQga1rXXUi9fwlYU79hfrdkZtEJOSho3VfLSoUcw6kcXqgChSvGh500aqglHnTm';
   const getData = useSelector((state) => state.cart);
   console.log(getData);
 
@@ -28,6 +37,7 @@ function Cart() {
 
   const checkout = async (e) => {
     e.preventDefault();
+    setModal(!modal);
     console.log("Data");
     await axios.post('http://localhost:5000/api/cart/', getData)
           .then( response=> {
@@ -37,6 +47,27 @@ function Cart() {
             console.log(error);
           });
   };
+
+  const priceForStripe = getData.totalPrice * 100;
+
+  const payNow = async token => {
+    try {
+      const response = await axios({
+        url: 'http://localhost:5000/payment',
+        method: 'post',
+        data: {
+          amount: getData.totalPrice * 100,
+          token,
+        },
+      });
+      if (response.status === 200) {
+        console.log("payment success");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (getData.carts.length != 0) {
     return (
       <>
@@ -127,12 +158,48 @@ return(
                 >
                   CHECKOUT
                 </button>
+                <StripeCheckout
+        stripeKey={publishableKey}
+        label="Pay Now"
+        name="Pay With Credit Card"
+        billingAddress
+        shippingAddress
+        amount={priceForStripe}
+        description={`Your total is $${getData.totalPrice}`}
+        token={payNow}
+      />
+      
               </div>
             </div>
           </div>
         </div>
+        {modal &&(<div onClick={toggleModal} className="cart-checkout-popup"
+  ><StripeCheckout
+  stripeKey={publishableKey}
+  label="Pay Now"
+  name="Pay With Credit Card"
+  billingAddress
+  shippingAddress
+  amount={priceForStripe}
+  description={`Your total is $${getData.totalPrice}`}
+  token={payNow}
+  className="btn-cart-popup"
+/>
+<button
+                  type="submit"
+                  name="submit"
+                  value="cancel"
+                 className="btn btn-cart-popup"
+                >
+                  CANCEL
+                </button>
+</div>)}
+
       </>
+
+      
     );
+    
   } else {
     return (
       <>

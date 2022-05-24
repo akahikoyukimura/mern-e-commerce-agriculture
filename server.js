@@ -2,6 +2,8 @@ const express=require('express');
 const mongoose=require('mongoose');
 const categoryRouter =require('./routes/api/dashboard/CategoriesRouter');
 const bodyParser=require('body-parser');
+const SECRET_KEY = require("./config/pay").SECRET_KEY;
+const Stripe = require('stripe')(SECRET_KEY);
 
 //const books=require('./routes/api/books');
 //const users=require('./routes/api/users');
@@ -36,3 +38,20 @@ app.use("/api/cart", cart);
 const port=process.env.PORT||5000;
 
 app.listen(port,()=>console.log(`server started on port ${port}`));
+
+app.post('/payment', async (req, res) => {
+        let status, error;
+        const { token, amount } = req.body;
+        try {
+          await Stripe.charges.create({
+            source: token.id,
+            amount,
+            currency: 'usd',
+          });
+          status = 'success';
+        } catch (error) {
+          console.log(error);
+          status = 'Failure';
+        }
+        res.json({ error, status });
+      });
