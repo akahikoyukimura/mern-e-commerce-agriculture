@@ -159,9 +159,11 @@ return(
                   <div className="col">TOTAL PRICE</div>
                   <div className="col text-right">&euro; {getData.totalPrice}</div>
                 </div>
-                <input placeholder="name" type="text" 
+                <hr></hr>
+                <p className="col normal-text-cart">&#9787; Give your name and address to proceed to checkout</p>
+                <input placeholder="Name" type="text" 
                 onChange={(e) => setCustomer({ ...customer, customerName: e.target.value })}/>
-                <input placeholder="address" type="text" 
+                <input placeholder="Address" type="text" 
                 onChange={(e) => setCustomer({ ...customer, customerAddress: e.target.value })}/>
                 <button
                   type="submit"
@@ -169,6 +171,7 @@ return(
                   value="checkout"
                  className="btn"
                  onClick={()=>setModal(!modal)}
+                 disabled={!customer.customerName || !customer.customerAddress?true:false}
                 >
                   CHECKOUT
                 </button>

@@ -473,6 +473,13 @@ body, ul, li, p, a, label, input, div {
   justify-content: center;
   align-content: space-evenly;
 }
+
+.normal-text-cart{
+  font-weight: normal !important;
+  font-size: 10px !important;
+  color: #498a5a;
+  margin-bottom: 20px;
+}
 .btn-cart-popup{
   background: #59ab6e !important;
   color: white !important;
