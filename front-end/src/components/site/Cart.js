@@ -13,6 +13,11 @@ import StripeCheckout from 'react-stripe-checkout';
 
 function Cart() {
 
+  const [customer, setCustomer] = useState({
+    customerName:"",
+    customerAddress:""
+  });
+
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -35,11 +40,16 @@ function Cart() {
     dispatch(removeFromCart(value));
   };
 
+  const CustomerData = {
+    customerCart: getData,
+    customerDetails: customer
+};
+
   const checkout = async (e) => {
     e.preventDefault();
-    setModal(!modal);
-    console.log("Data");
-    await axios.post('http://localhost:5000/api/cart/', getData)
+    //setModal(!modal);
+    console.log(CustomerData);
+    await axios.post('http://localhost:5000/api/cart/', CustomerData)
           .then( response=> {
                 console.log(response);
           })
@@ -149,16 +159,20 @@ return(
                   <div className="col">TOTAL PRICE</div>
                   <div className="col text-right">&euro; {getData.totalPrice}</div>
                 </div>
+                <input placeholder="name" type="text" 
+                onChange={(e) => setCustomer({ ...customer, customerName: e.target.value })}/>
+                <input placeholder="address" type="text" 
+                onChange={(e) => setCustomer({ ...customer, customerAddress: e.target.value })}/>
                 <button
                   type="submit"
                   name="submit"
                   value="checkout"
                  className="btn"
-                 onClick={checkout}
+                 onClick={()=>setModal(!modal)}
                 >
                   CHECKOUT
                 </button>
-                <StripeCheckout
+                {/* <StripeCheckout
         stripeKey={publishableKey}
         label="Pay Now"
         name="Pay With Credit Card"
@@ -167,14 +181,15 @@ return(
         amount={priceForStripe}
         description={`Your total is $${getData.totalPrice}`}
         token={payNow}
-      />
+      /> */}
       
               </div>
             </div>
           </div>
         </div>
         {modal &&(<div onClick={toggleModal} className="cart-checkout-popup"
-  ><StripeCheckout
+  >
+    <div onClick={checkout}><StripeCheckout
   stripeKey={publishableKey}
   label="Pay Now"
   name="Pay With Credit Card"
@@ -184,7 +199,8 @@ return(
   description={`Your total is $${getData.totalPrice}`}
   token={payNow}
   className="btn-cart-popup"
-/>
+  
+/></div>
 <button
                   type="submit"
                   name="submit"

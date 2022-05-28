@@ -6,10 +6,12 @@ const cart=require("../../../models/site/CartModle");
 
 router.post("/", (req, res) => {
   const newCart = new cart({
-    carts: req.body.carts,
-    user:req.body.user,
-    totalPrice: req.body.totalPrice,
-    totalQt: req.body.totalQt,
+    carts: req.body.customerCart.carts,
+    user:req.body.customerCart.user,
+    totalPrice: req.body.customerCart.totalPrice,
+    totalQt: req.body.customerCart.totalQt,
+    customerName:req.body.customerDetails.customerName,
+    customerAddress:req.body.customerDetails.customerAddress,
   });
 
   newCart.save().then((cart) => res.json(cart));

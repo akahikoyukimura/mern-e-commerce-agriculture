@@ -20,6 +20,12 @@ const cartSchema = new mongoose.Schema(
       totalQt: {
       type: Number,
     },
+    customerName:{
+      type:String,
+    },
+    customerAddress:{
+      type:String,
+    }
   },
   { timestamps: true }
 );
