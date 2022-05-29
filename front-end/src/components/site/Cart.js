@@ -82,7 +82,7 @@ useEffect( () => {
       });
       if (response.status === 200) {
         console.log("payment success");
-        //window.location = "/facturation";
+        window.location = "/facturation";
       }
     } catch (error) {
       console.log(error);
