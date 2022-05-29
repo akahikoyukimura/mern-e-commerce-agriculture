@@ -27,6 +27,7 @@ import About from './components/site/About';
 import Cart from './components/site/Cart';
 import LoginPage from './components/site/LoginPage';
 import RegisterPage from './components/site/RegisterPage';
+import Facturation from './components/site/Facturation';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/cart" element={<><Nav_bar1/><Cart /><Footer/></>} />
         <Route path='/loginPage' element={<LoginPage/>} />
         <Route path='/registerPage' element={<RegisterPage/>} />
+        <Route path='/facturation' element={<><Nav_bar1/><Facturation/><Footer/></>} />
         
 </Routes>
         {/*dasboard*/}

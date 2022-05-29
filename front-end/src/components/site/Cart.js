@@ -24,15 +24,18 @@ function Cart() {
   };
   console.log(modal);
 
+  //publish key for stripe payment---------------------------------------
   const publishableKey='pk_test_51L2zdzEGQz03sJGQWbhrBiJebiNygTaOimGDQga1rXXUi9fwlYU79hfrdkZtEJOSho3VfLSoUcw6kcXqgChSvGh500aqglHnTm';
+  //get cart data from reducer------------------------------------------
   const getData = useSelector((state) => state.cart);
   console.log(getData);
 
+  //get user data from local storage-------------------------------------
   const user=JSON.parse(localStorage.getItem('userInfo')).data;
   console.log(user);
   //console.log(JSON.parse(localStorage.getItem('cart')));
 
-  
+  //remove from cart button----------------------------------------------
   const dispatch=useDispatch();
   const handleSubmit = value => (e) => {
     e.preventDefault();
@@ -40,11 +43,18 @@ function Cart() {
     dispatch(removeFromCart(value));
   };
 
+  //customer data state-------------------------------------------------
   const CustomerData = {
     customerCart: getData,
     customerDetails: customer
 };
 
+//save customer data in local storage---------------------------------
+useEffect( () => {
+  localStorage.setItem('CustomerData', JSON.stringify(CustomerData));
+}, [CustomerData]);
+
+//checkout button---------------------------------------------------
   const checkout = async (e) => {
     e.preventDefault();
     //setModal(!modal);
@@ -58,8 +68,8 @@ function Cart() {
           });
   };
 
+  //pay button -------------------------------------------------
   const priceForStripe = getData.totalPrice * 100;
-
   const payNow = async token => {
     try {
       const response = await axios({
@@ -72,6 +82,7 @@ function Cart() {
       });
       if (response.status === 200) {
         console.log("payment success");
+        //window.location = "/facturation";
       }
     } catch (error) {
       console.log(error);
