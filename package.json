@@ -22,7 +22,9 @@
     "path": "^0.12.7",
     "route": "^0.2.5",
     "router": "^1.3.6",
-    "stripe": "^9.4.0"
+    "stripe": "^9.4.0",
+    "swagger-jsdoc": "^6.2.1",
+    "swagger-ui-express": "^4.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

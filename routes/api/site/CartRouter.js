@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+
 const product = require("../../../models/dashboard/ProductModle");
 const cart=require("../../../models/site/CartModle");
 
@@ -17,6 +18,16 @@ router.post("/", (req, res) => {
   newCart.save().then((cart) => res.json(cart));
 });
 
+// Routes
+/**
+ * @swagger
+ * /customers:
+ *  get:
+ *    description: Use to request all customers
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
 router.get("/", (req, res) => {
     cart
       .find({})

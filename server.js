@@ -4,6 +4,10 @@ const categoryRouter =require('./routes/api/dashboard/CategoriesRouter');
 const bodyParser=require('body-parser');
 const SECRET_KEY = require("./config/pay").SECRET_KEY;
 const Stripe = require('stripe')(SECRET_KEY);
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
+
 
 //const books=require('./routes/api/books');
 //const users=require('./routes/api/users');
@@ -55,3 +59,25 @@ app.post('/payment', async (req, res) => {
         }
         res.json({ error, status });
       });
+
+
+
+      // Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      version: "1.0.0",
+      title: "Customer API",
+      description: "Customer API Information",
+      contact: {
+        name: "Amazing Developer"
+      },
+      servers: ["http://localhost:5000"]
+    }
+  },
+  // ['.routes/*.js']
+  apis: ["./routes/api/site/*.js"]
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
