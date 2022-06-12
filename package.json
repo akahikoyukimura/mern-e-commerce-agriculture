@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd front-end && npm run build",
-    "install-client": "cd front-end && npm install --legacy-peer-deps",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "install-client": "npm install --legacy-peer-deps --prefix front-end",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "cd front-end && npm start",
-    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
+    "client": "npm start --prefix front-end",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && npm run build --prefix front-end"
   },
   "author": "",
   "license": "ISC",

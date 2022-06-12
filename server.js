@@ -6,6 +6,7 @@ const SECRET_KEY = require("./config/pay").SECRET_KEY;
 const Stripe = require('stripe')(SECRET_KEY);
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const path =require('path');
 
 
 const products=require('./routes/api/dashboard/ProductRouter');
@@ -29,6 +30,11 @@ mongoose
 
         if (process.env.NODE_ENV === 'production') {
           app.use(express.static('front-end/build'));
+
+          app.get('*',(req,res)=>{
+
+            res.sendFile(path.resolve(__dirname,'front-end','build','index.html'));
+          });
       }
 
 app.use("/uploads",express.static("routes/api/dashboard/uploads"));
