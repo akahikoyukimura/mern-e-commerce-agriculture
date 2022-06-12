@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "cd front-end && npm run build",
+    "install-client": "cd front-end && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd front-end && npm start",
+    "dev": "concurrently -n 'server,client' -c 'red,green'  \"nodemon server.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.2",
-    "concurrently": "^7.0.0",
+    "concurrently": "^7.2.1",
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "express": "^4.17.2",

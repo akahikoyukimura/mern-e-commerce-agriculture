@@ -27,6 +27,10 @@ mongoose
         .catch(err=>console.log(err));
 
 
+        if (process.env.NODE_ENV === 'production') {
+          app.use(express.static('front-end/build'));
+      }
+
 app.use("/uploads",express.static("routes/api/dashboard/uploads"));
 app.use("/api/category", categoryRouter);
 app.use("/api/product", products);
