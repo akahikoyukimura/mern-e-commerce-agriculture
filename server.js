@@ -28,14 +28,6 @@ mongoose
         .catch(err=>console.log(err));
 
 
-        if (process.env.NODE_ENV === 'production') {
-          app.use(express.static('front-end/build'));
-
-          app.get('*',(req,res)=>{
-
-            res.sendFile(path.resolve(__dirname,'front-end','build','index.html'));
-          });
-      }
 
 app.use("/uploads",express.static("routes/api/dashboard/uploads"));
 app.use("/api/category", categoryRouter);
@@ -44,6 +36,16 @@ app.use("/api/user", users);
 app.use("/api/auth", auth);
 app.use("/api/cart", cart);
 
+
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('front-end/build'));
+
+  app.get('*',(req,res)=>{
+
+    res.sendFile(path.resolve(__dirname,'front-end','build','index.html'));
+  });
+}
 const port=process.env.PORT||5000;
 
 app.listen(port,()=>console.log(`server started on port ${port}`));
