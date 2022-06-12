@@ -9,6 +9,7 @@ const CryptoJS = require("crypto-js");
 //const jwt = require("jsonwebtoken");
 
 
+
 //update
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
     if (req.body.uPassword) {

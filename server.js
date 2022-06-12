@@ -8,9 +8,6 @@ const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
 
-
-//const books=require('./routes/api/books');
-//const users=require('./routes/api/users');
 const products=require('./routes/api/dashboard/ProductRouter');
 const users=require('./routes/api/site/UserRouter');
 const auth=require('./routes/api/site/AuthRouter');
@@ -30,8 +27,6 @@ mongoose
         .catch(err=>console.log(err));
 
 
-//app.use('/api/books' , books);
-//app.use('/api/users' , users);
 app.use("/uploads",express.static("routes/api/dashboard/uploads"));
 app.use("/api/category", categoryRouter);
 app.use("/api/product", products);
@@ -65,12 +60,13 @@ app.post('/payment', async (req, res) => {
       // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
   swaggerDefinition: {
+    components: {},
     info: {
       version: "1.0.0",
-      title: "Customer API",
-      description: "Customer API Information",
+      title: "E-commerce API",
+      description: "e-commerce API Information",
       contact: {
-        name: "Amazing Developer"
+        name: "AgriKit Developer"
       },
       servers: ["http://localhost:5000"]
     }
@@ -81,3 +77,4 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
