@@ -5,22 +5,53 @@ const router = express.Router();
 const product = require("../../../models/dashboard/ProductModle");
 const cart=require("../../../models/site/CartModle");
 
-
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Cart:
+ *      type: object
+ *      properties:
+ *        _id:
+ *          type: string
+ *        carts:
+ *          type: array
+ *          items:
+ *            _id:
+ *            type: string
+ *        totalPrice:
+ *          type: number
+ *        totalQt:
+ *          type: number
+ *        customerName:
+ *          type: string
+ *        customerAddress:
+ *          type: string
+ */
 
 // Routes
 /**
  * @swagger
  * /api/cart/:
  *  post:
- *    tags: ["Order operations"]
+ *    tags: ["Orders"]
  *    description: Use to request all orders
  *    requestBody:
  *      required: true
  *      content:
- *        application/json
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            items:
+ *              $ref: '#/components/schemas/Cart'
  *    responses:
- *      '200':
- *        description: A successful response
+ *      200:
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/Cart'
+ *      500:
+ *        description: Some server error
  */
 router.post("/", (req, res) => {
   const newCart = new cart({
@@ -40,7 +71,7 @@ router.post("/", (req, res) => {
  * @swagger
  * /api/cart/:
  *  get:
- *    tags: ["Order operations"]
+ *    tags: ["Orders"]
  *    description: Use to request all orders
  *    responses:
  *      '200':
@@ -58,9 +89,9 @@ router.get("/", (req, res) => {
 // Routes
 /**
  * @swagger
- * /api/cart/cartProducts/:id:
+ * /api/cart/cartProducts/{id}:
  *  get:
- *    tags: ["Order operations"]
+ *    tags: ["Orders"]
  *    description: Use to request all orders
  *    parameters:
  *      - in : path

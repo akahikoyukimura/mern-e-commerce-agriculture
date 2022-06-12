@@ -56,7 +56,6 @@ app.post('/payment', async (req, res) => {
       });
 
 
-
       // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
   swaggerDefinition: {
@@ -66,7 +65,8 @@ const swaggerOptions = {
       title: "E-commerce API",
       description: "e-commerce API Information",
       contact: {
-        name: "AgriKit Developer"
+        name: "AgriKit Developer",
+        email: "support@example.com"
       },
       servers: ["http://localhost:5000"]
     }
