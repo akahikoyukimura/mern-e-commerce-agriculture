@@ -52,7 +52,7 @@ function App() {
 </Routes>
         {/*dasboard*/}
         <Routes>
-          {JSON.parse(localStorage.getItem('userInfo')).data.uRrole==='admin'?
+          {JSON.parse(localStorage.getItem('userInfo'))?JSON.parse(localStorage.getItem('userInfo')).data.uRrole==='admin'?
         <Route path="/dashboard">
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
@@ -89,7 +89,7 @@ function App() {
               <Route index element={<Orders />} />
             </Route>
 
-          </Route>:<Route path="/dashboard" element={<Navigate replace to="/loginPage" />} />}
+          </Route>:<Route path="/dashboard" element={<Navigate replace to="/loginPage" />} />:<Route path="/dashboard" element={<Navigate replace to="/loginPage" />} />}
       </Routes>
       
       {/* <Footer/> */}
