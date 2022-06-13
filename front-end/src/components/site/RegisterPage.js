@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import img from "../../images/undraw_file_sync_ot38.svg";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import API from '../Api';
 
 function RegisterPage() {
    
@@ -23,7 +24,7 @@ function RegisterPage() {
     if (Data.uPassword !== Data.RuPassword) {
         setMessage("Passwords do not match");
       }
-    await axios.post('http://localhost:5000/api/auth/register', Data)
+    await API.post('api/auth/register', Data)
           .then( response=> {
                 window.location = "/loginPage";
           })

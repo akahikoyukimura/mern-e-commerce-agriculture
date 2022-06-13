@@ -10,6 +10,7 @@ import {RiEmotionHappyFill} from "react-icons/ri";
 import axios from 'axios';
 import { removeFromCart } from "../../store/actions/CartActions";
 import StripeCheckout from 'react-stripe-checkout';
+import API from '../Api';
 
 function Cart() {
 
@@ -59,7 +60,7 @@ useEffect( () => {
     e.preventDefault();
     //setModal(!modal);
     console.log(CustomerData);
-    await axios.post('http://localhost:5000/api/cart/', CustomerData)
+    await API.post('api/cart/', CustomerData)
           .then( response=> {
                 console.log(response);
           })
@@ -72,8 +73,8 @@ useEffect( () => {
   const priceForStripe = getData.totalPrice * 100;
   const payNow = async token => {
     try {
-      const response = await axios({
-        url: 'http://localhost:5000/payment',
+      const response = await API({
+        url: 'payment',
         method: 'post',
         data: {
           amount: getData.totalPrice * 100,

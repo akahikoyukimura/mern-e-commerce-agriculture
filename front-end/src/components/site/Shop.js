@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import $ from "jquery";
 import axios from "axios";
+import API from '../Api';
 
 function Shop(props) {
   const location = useLocation()
@@ -34,8 +35,8 @@ function Shop(props) {
   useEffect(async () => {
     try {
       const { name } = location.state.name;
-      if(name){const pro=await axios
-        .get(`http://localhost:5000/api/product/categorie/${name}`);
+      if(name){const pro=await API
+        .get(`api/product/categorie/${name}`);
         if(pro){console.log(pro.data.data);
           setProds({ p: pro.data.data });
         }else{

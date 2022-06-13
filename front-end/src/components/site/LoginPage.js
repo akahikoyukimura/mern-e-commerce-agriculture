@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import img from "../../images/undraw_file_sync_ot38.svg";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import API from '../Api';
 
 function LoginPage({history}) {
   const [checked, setChecked] = useState(false);
@@ -24,7 +25,7 @@ function LoginPage({history}) {
     e.preventDefault();
     console.log(Data);
 
-        await axios.post('http://localhost:5000/api/auth/login', Data)
+        await API.post('api/auth/login', Data)
           .then( response=> {
             localStorage.setItem("userInfo", JSON.stringify(response));
             if (response.data.uRrole==='admin') {
