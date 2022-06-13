@@ -42,7 +42,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://mern-e-commerce-project.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
