@@ -47,8 +47,8 @@ function Shop(props) {
       
     }
     if(!location.state){
-      const pro=await axios
-        .get(`http://localhost:5000/api/product/`);
+      const pro=await API
+        .get(`api/product/`);
         if(pro){console.log(pro.data);
           setProds({ p: pro.data });
         }else{
@@ -65,7 +65,7 @@ function Shop(props) {
   const filter = value => async (e) => {
     e.preventDefault();
     console.log(value);
-    await axios.get(`http://localhost:5000/api/product/sub_categorie/${value}`)
+    await API.get(`api/product/sub_categorie/${value}`)
           .then( response=> {
                 console.log(response);
                 setProds({ p: response.data.data });
